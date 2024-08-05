@@ -569,10 +569,6 @@ require('lazy').setup({
       local servers = {
         -- clangd = {},
         gopls = {},
-        -- pyright = {},
-        -- rust_analyzer = {},
-        -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-        --
         -- Some languages (like typescript) have entire language plugins that can be useful:
         --    https://github.com/pmizio/typescript-tools.nvim
         --
@@ -594,6 +590,20 @@ require('lazy').setup({
             },
           },
         },
+        tailwindcss = {},
+        marksman = {},
+        dockerls = {},
+        docker_compose_language_service = {},
+        yamlls = {},
+        bashls = {},
+        html = { filetypes = { 'html', 'twig', 'hbs' } },
+        -- helm_ls = {},
+        -- astro = {},
+        -- graphql = {},
+        -- svelte = {},
+        -- psalm = {},
+        -- volar = {},
+        -- azure_pipelines_ls = {},
       }
 
       -- Ensure the servers and tools above are installed
@@ -814,7 +824,7 @@ require('lazy').setup({
 
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
       --
-      -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
+      -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Parent
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
@@ -842,7 +852,26 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+      ensure_installed = {
+        'bash',
+        'diff',
+        'html',
+        'lua',
+        'luadoc',
+        'markdown',
+        'markdown_inline',
+        'query',
+        'vim',
+        'vimdoc',
+        'go',
+        'yaml',
+        'php',
+        'make',
+        'typescript',
+        'javascript',
+        'tsx',
+        'helm',
+      },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -879,10 +908,10 @@ require('lazy').setup({
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
   -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
+  require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
-  -- require 'kickstart.plugins.neo-tree',
+  require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
